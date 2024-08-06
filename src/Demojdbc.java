@@ -49,8 +49,21 @@ public class Demojdbc {
 //        stmt.executeUpdate(sql);
 
         // delete operation
-        String sql = "delete from student where sid=5";
-        stmt.executeUpdate(sql);
+//        String sql = "delete from student where sid=5";
+//        stmt.executeUpdate(sql);
+
+        int sid = 102;
+        String sname = "Jasmine";
+        int marks = 52;
+        // String sql = "insert into student values('"+sid+"','"+sname+"','"+marks+"')";
+        String sql = "insert into student values(?, ?, ?)";
+
+        PreparedStatement pstmt = con.prepareStatement(sql);
+        pstmt.setInt(1, sid);
+        pstmt.setString(2, sname);
+        pstmt.setInt(3, marks);
+
+        pstmt.execute();
 
         con.close();
 

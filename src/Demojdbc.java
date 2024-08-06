@@ -29,9 +29,15 @@ public class Demojdbc {
         String sql = "select * from student";
         ResultSet rs = stmt.executeQuery(sql);
 
-        rs.next();
-        String name = rs.getString("sname"); // get the specific column
-        System.out.println("Name of a student is " + name);
+//        rs.next();
+//        String name = rs.getString("sname"); // get the specific column
+//        System.out.println("Name of a student is " + name);
+
+        while (rs.next()) {
+            System.out.println(rs.getInt(1) + " - "
+                    + rs.getString(2) + " - "
+                    + rs.getString(3));
+        }
 
         con.close();
 
